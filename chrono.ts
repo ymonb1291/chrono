@@ -1,3 +1,7 @@
+/**
+ * The Chrono constructor
+ * @extends Date
+ */
 export class Chrono extends Date {
 
   constructor()
