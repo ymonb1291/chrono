@@ -1,3 +1,5 @@
+import { Duration } from "./duration.enum.ts";
+
 /**
  * The Chrono constructor
  * @extends Date
@@ -15,6 +17,19 @@ export class Chrono extends Date {
     } else {
       super(...args as [number, number, number?, number?, number?, number?, number?]);
     }
+  }
+
+  /**
+   * Add n days to the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of days to add
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().addDay(3); // Add 3 days to the current date
+   */
+  public addDay(n: number = 1): number {
+    return this.setTime(this.getTime() + (Duration.DAY * n));
   }
 
 }
