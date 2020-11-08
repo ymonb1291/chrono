@@ -58,4 +58,25 @@ export class Chrono extends Date {
     return this.setTime(this.getTime() + (Duration.MINUTE * n));
   }
 
+  /**
+   * Add n months to the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of months to add
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().addMonth(3); // Add 3 months to the current date
+   */
+  public addMonth(n: number = 1): number {
+    const oldDate = new Date(this.getTime());
+    const newDate = new Date(this.getTime());
+    newDate.setMonth(newDate.getMonth() + n);
+    
+    while(newDate.getMonth() > ((oldDate.getMonth() + n%12) % 12)) {
+      newDate.setDate(newDate.getDate() - 1);
+    }
+    
+    return this.setTime(newDate.getTime());
+  }
+
 }
