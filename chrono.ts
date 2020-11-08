@@ -126,4 +126,24 @@ export class Chrono extends Date {
     return this.setTime(newDate.getTime());
   }
 
+  /**
+   * Update the date and time from a timestamp or a Date or Chrono object
+   * @public
+   * @method
+   * @param {number|Date|Chrono} time Timestamp, Date object or Chrono object
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().set(Date.now()); // Set date and time using a timestamp
+   * new Chrono().set(new Date);   // Set date and time using a Date object
+   * new Chrono().set(new Chrono); // Set date and time using a Chrono object
+   */
+  public set(time: number | Date | Chrono): number {
+    if(time instanceof Date) {
+      this.setTime(time.getTime());
+    } else {
+      this.setTime(time);
+    }
+    return this.getTime();
+  }
+
 }
