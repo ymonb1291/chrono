@@ -218,4 +218,17 @@ export class Chrono extends Date {
     return this.setTime(this.getTime() - (Duration.SECOND * n));
   }
 
+  /**
+   * Substracts n weeks from the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of weeks to substract
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().substractWeek(3); // Substracts 3 weeks from the current date
+   */
+  public substractWeek(n: number = 1): number {
+    return this.setTime(this.getTime() - (Duration.WEEK * n));
+  }
+
 }
