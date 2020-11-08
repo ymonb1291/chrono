@@ -146,4 +146,17 @@ export class Chrono extends Date {
     return this.getTime();
   }
 
+  /**
+   * Substracts n days from the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of days to substract
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().substractDay(3); // Substracts 3 days from the current date
+   */
+  public substractDay(n: number = 1): number {
+    return this.setTime(this.getTime() - (Duration.DAY * n));
+  }
+
 }
