@@ -172,4 +172,17 @@ export class Chrono extends Date {
     return this.setTime(this.getTime() - (Duration.HOUR * n));
   }
 
+  /**
+   * Substracts n minutes from the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of minutes to substract
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().substractMinute(3); // Substracts 3 minutes from the current time
+   */
+  public substractMinute(n: number = 1): number {
+    return this.setTime(this.getTime() - (Duration.MINUTE * n));
+  }
+
 }
