@@ -32,4 +32,17 @@ export class Chrono extends Date {
     return this.setTime(this.getTime() + (Duration.DAY * n));
   }
 
+  /**
+   * Add n hours to the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of hours to add
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().addHour(3); // Add 3 hours to the current time
+   */
+  public addHour(n: number = 1): number {
+    return this.setTime(this.getTime() + (Duration.HOUR * n));
+  }
+
 }
