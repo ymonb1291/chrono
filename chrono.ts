@@ -185,4 +185,24 @@ export class Chrono extends Date {
     return this.setTime(this.getTime() - (Duration.MINUTE * n));
   }
 
+  /**
+   * Substracts n months from the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of months to substract
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().substractMonth(3); // Substracts 3 months from the current date
+   */
+  public substractMonth(n: number = 1): number {
+    const oldDate = new Date(this.getTime());
+    const newDate = new Date(this.getTime());
+    newDate.setMonth(newDate.getMonth() - n);
+    while(oldDate.getDate() > 28 && newDate.getDate() < 4) {
+      newDate.setDate(newDate.getDate() - 1);
+    }
+
+    return this.setTime(newDate.getTime());
+  }
+
 }
