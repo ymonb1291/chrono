@@ -105,4 +105,25 @@ export class Chrono extends Date {
     return this.setTime(this.getTime() + (Duration.WEEK * n));
   }
 
+  /**
+   * Add n years to the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of years to add
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().addYear(3); // Add 3 years to the current date
+   */
+  public addYear(n: number = 1): number {
+    const oldDate = new Date(this.getTime());
+    const newDate = new Date(this.getTime());
+    newDate.setFullYear(newDate.getFullYear() + n);
+
+    while(newDate.getMonth() !== oldDate.getMonth()) {
+      newDate.setDate(newDate.getDate() - 1);
+    }
+    
+    return this.setTime(newDate.getTime());
+  }
+
 }
