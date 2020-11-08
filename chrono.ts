@@ -45,4 +45,17 @@ export class Chrono extends Date {
     return this.setTime(this.getTime() + (Duration.HOUR * n));
   }
 
+  /**
+   * Add n minutes to the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of minutes to add
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().addMinute(3); // Add 3 minutes to the current time
+   */
+  public addMinute(n: number = 1): number {
+    return this.setTime(this.getTime() + (Duration.MINUTE * n));
+  }
+
 }
