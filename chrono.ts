@@ -79,4 +79,17 @@ export class Chrono extends Date {
     return this.setTime(newDate.getTime());
   }
 
+  /**
+   * Add n seconds to the date and time value
+   * @public
+   * @method
+   * @param {number} [n=1] Number of seconds to add
+   * @returns {number} Timestamp
+   * @example
+   * new Chrono().addSecond(3); // Add 3 seconds to the current time
+   */
+  public addSecond(n: number = 1): number {
+    return this.setTime(this.getTime() + (Duration.SECOND * n));
+  }
+
 }
