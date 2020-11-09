@@ -176,12 +176,28 @@ export class Chrono extends Date {
   public isLeapYear(): boolean {
     const year = this.getFullYear();
 
-    if (year%4 !== 0 || (year%100 === 0 && year%400 !== 0)) {
-      // common year
-      return false
-    }
-    // leap year
-    return true
+    return this._isLeapYear(year);
+  }
+
+  /**
+   * Checks whether the UTC year is a leap year
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * console.log(chrono.isUTCLeapYear());
+   * // -> true
+   * ```
+   * ```
+   * const chrono = new Chrono("Feb 01 2021 00:00:00");
+   * console.log(chrono.isUTCLeapYear());
+   * // -> false
+   * ```
+   */
+  public isUTCLeapYear(): boolean {
+    const year = this.getUTCFullYear();
+
+    return this._isLeapYear(year);
   }
 
   /**
@@ -382,6 +398,16 @@ export class Chrono extends Date {
       this.getUTCSeconds(),
       this.getUTCMilliseconds()
     ];
+  }
+
+  /** Checks if a year is a leap year */
+  private _isLeapYear(year: number): boolean {
+    if (year%4 !== 0 || (year%100 === 0 && year%400 !== 0)) {
+      // common year
+      return false
+    }
+    // leap year
+    return true
   }
 
 }
