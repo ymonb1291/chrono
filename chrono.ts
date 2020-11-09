@@ -336,4 +336,26 @@ export class Chrono extends Date {
     ];
   }
 
+  /**
+   * Returns the date expressed as an array
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * console.log(chrono.toUTCArray());
+   * // -> [2020, 0, 31, 23, 0, 0, 0]
+   * ```
+   */
+  public toUTCArray(): [number, number, number, number, number, number, number] {
+    return [
+      this.getUTCFullYear(),
+      this.getUTCMonth(),
+      this.getUTCDate(),
+      this.getUTCHours(),
+      this.getUTCMinutes(),
+      this.getUTCSeconds(),
+      this.getUTCMilliseconds()
+    ];
+  }
+
 }
