@@ -1,5 +1,6 @@
 # Chrono
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ymonb1291/chrono)
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/chrono/mod.ts)
 ![GitHub](https://img.shields.io/github/license/ymonb1291/chrono)
 
 A date utility library that extends the native `Date` object.
@@ -162,6 +163,32 @@ console.log(chrono.toLocaleString()); // Tue Feb 01 2022 12:00:00 GMT+0100 (CET)
 console.log(res);                     // 1643713200000
 ```
 
+## Chrono.prototype.isLeapYear
+### Method signature
+```
+Chrono.isLeapYear(): boolean
+```
+* **Returns:** a value of type `boolean` which is true when the year is a leap year
+
+### Example
+```
+const chrono = new Chrono("Jan 01 2020 00:00:00");
+console.log(chrono.isLeapYear());    // true
+```
+
+## Chrono.prototype.isUTCLeapYear
+### Method signature
+```
+Chrono.isUTCLeapYear(): boolean
+```
+* **Returns:** a value of type `boolean` which is true when the UTC year is a leap year
+
+### Example
+```
+const chrono = new Chrono("Jan 01 2020 00:00:00");
+console.log(chrono.isUTCLeapYear());    // false
+```
+
 ## Chrono.prototype.set
 ### Method signature
 ```
@@ -296,6 +323,32 @@ const chrono = new Chrono("Feb 01 2020 12:00:00.000");
 const res = chrono.substractYear(2);
 console.log(chrono.toLocaleString()); // Thu Feb 01 2018 12:00:00 GMT+0100 (CET)
 console.log(res);                     // 1517482800000
+```
+
+## Chrono.prototype.toArray
+### Method signature
+```
+Chrono.toArray(): [number, number, number, number, number, number, number]
+```
+* **Returns:** an array of 7 values of type `number` representing [`year`, `month`, `date`, `hours`, `minutes`, `seconds`, `milliseconds`]
+
+### Example
+```
+const chrono = new Chrono("Feb 01 2020 00:00:00");
+console.log(chrono.toUTCArray());   // [2020, 1, 1, 0, 0, 0, 0]
+```
+
+## Chrono.prototype.toUTCArray
+### Method signature
+```
+Chrono.toUTCArray(): [number, number, number, number, number, number, number]
+```
+* **Returns:** an array of 7 values of type `number` representing [`UTCYear`, `UTCMonth`, `UTCDate`, `UTCHours`, `UTCMinutes`, `UTCSeconds`, `UTCMilliseconds`]
+
+### Example
+```
+const chrono = new Chrono("Feb 01 2020 00:00:00");
+console.log(chrono.toUTCArray());   // [2020, 0, 31, 23, 0, 0, 0]
 ```
 
 # Contributions
