@@ -13,7 +13,7 @@ export class Chrono extends Date {
   constructor()
   constructor(value: number | string | Date)
   constructor(year: number, month: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number)
-  constructor(...args: any[]) {
+  constructor(...args: unknown[]) {
     if(!args.length) {
       super(...args as []);
     } else if(args.length === 1) {
