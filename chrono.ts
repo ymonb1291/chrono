@@ -314,4 +314,26 @@ export class Chrono extends Date {
     return this.setTime(newDate.getTime());
   }
 
+  /**
+   * Returns the date expressed as an array
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * console.log(chrono.toArray());
+   * // -> [2020, 1, 1, 0, 0, 0, 0]
+   * ```
+   */
+  public toArray(): [number, number, number, number, number, number, number] {
+    return [
+      this.getFullYear(),
+      this.getMonth(),
+      this.getDate(),
+      this.getHours(),
+      this.getMinutes(),
+      this.getSeconds(),
+      this.getMilliseconds()
+    ];
+  }
+
 }
