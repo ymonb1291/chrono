@@ -159,6 +159,32 @@ export class Chrono extends Date {
   }
 
   /**
+   * Checks whether the year is a leap year
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * console.log(chrono.isLeapYear());
+   * // -> true
+   * ```
+   * ```
+   * const chrono = new Chrono("Feb 01 2021 00:00:00");
+   * console.log(chrono.isLeapYear());
+   * // -> false
+   * ```
+   */
+  public isLeapYear(): boolean {
+    const year = this.getFullYear();
+
+    if (year%4 !== 0 || (year%100 === 0 && year%400 !== 0)) {
+      // common year
+      return false
+    }
+    // leap year
+    return true
+  }
+
+  /**
    * Update the date and time from a timestamp or a Date or Chrono object
    * 
    * **Example**
