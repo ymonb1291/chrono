@@ -1,8 +1,12 @@
 import { Duration } from "./duration.enum.ts";
 
-/**
+/** 
  * The Chrono constructor
- * @extends Date
+ * 
+ * **Example**
+ * ```
+ * new Chrono().getTime();
+ * ```
  */
 export class Chrono extends Date {
 
@@ -21,12 +25,16 @@ export class Chrono extends Date {
 
   /**
    * Add n days to the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of days to add
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().addDay(3); // Add 3 days to the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.addDay(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Mon Feb 03 2020 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580684400000
+   * ```
    */
   public addDay(n: number = 1): number {
     return this.setTime(this.getTime() + (Duration.DAY * n));
@@ -34,12 +42,16 @@ export class Chrono extends Date {
 
   /**
    * Add n hours to the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of hours to add
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().addHour(3); // Add 3 hours to the current time
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.addHour(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Sat Feb 01 2020 02:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580518800000
+   * ```
    */
   public addHour(n: number = 1): number {
     return this.setTime(this.getTime() + (Duration.HOUR * n));
@@ -47,12 +59,16 @@ export class Chrono extends Date {
 
   /**
    * Add n minutes to the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of minutes to add
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().addMinute(3); // Add 3 minutes to the current time
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.addMinute(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Sat Feb 01 2020 00:02:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580511720000
+   * ```
    */
   public addMinute(n: number = 1): number {
     return this.setTime(this.getTime() + (Duration.MINUTE * n));
@@ -60,12 +76,16 @@ export class Chrono extends Date {
 
   /**
    * Add n months to the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of months to add
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().addMonth(3); // Add 3 months to the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.addMonth(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Wed Apr 01 2020 00:00:00 GMT+0200 (CEST)
+   * console.log(timestamp); 
+   * // -> 1585692000000
+   * ```
    */
   public addMonth(n: number = 1): number {
     const oldDate = new Date(this.getTime());
@@ -81,12 +101,16 @@ export class Chrono extends Date {
 
   /**
    * Add n seconds to the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of seconds to add
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().addSecond(3); // Add 3 seconds to the current time
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.addSecond(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Sat Feb 01 2020 00:00:02 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580511602000
+   * ```
    */
   public addSecond(n: number = 1): number {
     return this.setTime(this.getTime() + (Duration.SECOND * n));
@@ -94,12 +118,16 @@ export class Chrono extends Date {
 
   /**
    * Add n weeks to the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of weeks to add
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().addWeek(3); // Add 3 weeks to the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.addWeek(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Sat Feb 15 2020 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1581721200000
+   * ```
    */
   public addWeek(n: number = 1): number {
     return this.setTime(this.getTime() + (Duration.WEEK * n));
@@ -107,12 +135,16 @@ export class Chrono extends Date {
 
   /**
    * Add n years to the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of years to add
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().addYear(3); // Add 3 years to the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.addYear(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Tue Feb 01 2022 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1643670000000
+   * ```
    */
   public addYear(n: number = 1): number {
     const oldDate = new Date(this.getTime());
@@ -128,14 +160,16 @@ export class Chrono extends Date {
 
   /**
    * Update the date and time from a timestamp or a Date or Chrono object
-   * @public
-   * @method
-   * @param {number|Date|Chrono} time Timestamp, Date object or Chrono object
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().set(Date.now()); // Set date and time using a timestamp
-   * new Chrono().set(new Date);   // Set date and time using a Date object
-   * new Chrono().set(new Chrono); // Set date and time using a Chrono object
+   * 
+   * **Example**
+   * ```
+   * // Set date and time using a timestamp
+   * new Chrono().set(Date.now());
+   * // Set date and time using a Date object
+   * new Chrono().set(new Date);
+   * // Set date and time using a Chrono object
+   * new Chrono().set(new Chrono);
+   * ```
    */
   public set(time: number | Date | Chrono): number {
     if(time instanceof Date) {
@@ -148,12 +182,16 @@ export class Chrono extends Date {
 
   /**
    * Substracts n days from the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of days to substract
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().substractDay(3); // Substracts 3 days from the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.substractDay(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Thu Jan 30 2020 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580338800000
+   * ```
    */
   public substractDay(n: number = 1): number {
     return this.setTime(this.getTime() - (Duration.DAY * n));
@@ -161,12 +199,16 @@ export class Chrono extends Date {
 
   /**
    * Substracts n hours from the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of hours to substract
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().substractHour(3); // Substracts 3 hours from the current time
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.substractHour(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Fri Jan 31 2020 22:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580504400000
+   * ```
    */
   public substractHour(n: number = 1): number {
     return this.setTime(this.getTime() - (Duration.HOUR * n));
@@ -174,12 +216,16 @@ export class Chrono extends Date {
 
   /**
    * Substracts n minutes from the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of minutes to substract
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().substractMinute(3); // Substracts 3 minutes from the current time
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.substractMinute(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Fri Jan 31 2020 23:58:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580511480000
+   * ```
    */
   public substractMinute(n: number = 1): number {
     return this.setTime(this.getTime() - (Duration.MINUTE * n));
@@ -187,12 +233,16 @@ export class Chrono extends Date {
 
   /**
    * Substracts n months from the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of months to substract
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().substractMonth(3); // Substracts 3 months from the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.substractMonth(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Sun Dec 01 2019 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1575154800000
+   * ```
    */
   public substractMonth(n: number = 1): number {
     const oldDate = new Date(this.getTime());
@@ -207,12 +257,16 @@ export class Chrono extends Date {
 
   /**
    * Substracts n seconds from the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of seconds to substract
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().substractSecond(3); // Substracts 3 seconds from the current time
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.substractSecond(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Fri Jan 31 2020 23:59:58 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1580511598000
+   * ```
    */
   public substractSecond(n: number = 1): number {
     return this.setTime(this.getTime() - (Duration.SECOND * n));
@@ -220,12 +274,16 @@ export class Chrono extends Date {
 
   /**
    * Substracts n weeks from the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of weeks to substract
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().substractWeek(3); // Substracts 3 weeks from the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.substractWeek(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Sat Jan 18 2020 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1579302000000
+   * ```
    */
   public substractWeek(n: number = 1): number {
     return this.setTime(this.getTime() - (Duration.WEEK * n));
@@ -233,12 +291,16 @@ export class Chrono extends Date {
 
   /**
    * Substracts n years from the date and time value
-   * @public
-   * @method
-   * @param {number} [n=1] Number of years to substract
-   * @returns {number} Timestamp
-   * @example
-   * new Chrono().substractYear(3); // Substracts 3 years from the current date
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * const timestamp = chrono.substractYear(2);
+   * console.log(chrono.toLocaleString());
+   * // -> Thu Feb 01 2018 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 1517439600000
+   * ```
    */
   public substractYear(n: number = 1): number {
     const oldDate = new Date(this.getTime());
