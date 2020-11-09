@@ -53,6 +53,14 @@ Rhum.testPlan("is_leap_year_test.ts", () => {
       expect(res).toBeTruthy();
     });
 
+    Rhum.testCase("Checks the locale", () => {
+      const chrono = new Chrono("Jan 01 2000 00:00:00");
+      
+      const res = chrono.isLeapYear();
+      
+      expect(res).toBeTruthy();
+    });
+
   });
 
 });
