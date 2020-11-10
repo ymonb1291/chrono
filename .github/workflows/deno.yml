@@ -24,6 +24,13 @@ jobs:
         uses: denolib/setup-deno@v2.2.0
         with:
           deno-version: ${{ matrix.deno }}
+          
+      - name: Set Timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: Europe/Berlin
+          timezoneMacos: Europe/Berlin
+          timezoneWindows: Europe/Berlin
 
       - name: Deno Version
         run: deno --version
