@@ -1,4 +1,6 @@
+import { DaysInMonth } from "./days_in_month.enum.ts";
 import { Duration } from "./duration.enum.ts";
+import { NameOfMonth } from "./name_of_month.enum.ts";
 
 /** 
  * The Chrono constructor
@@ -156,6 +158,33 @@ export class Chrono extends Date {
     }
     
     return this.setTime(newDate.getTime());
+  }
+
+  /**
+   * Returns the number of days in the month
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * console.log(chrono.getLenghOfMonth());
+   * // -> 29
+   * ```
+   * ```
+   * const chrono = new Chrono("Feb 01 2020 00:00:00");
+   * console.log(chrono.getLenghOfMonth(2));
+   * // -> 31
+   * ```
+   */
+  public getLenghOfMonth(month?: number): number {
+    month = month || this.getMonth();
+
+    if(month === 1 && this.isLeapYear()) {
+      return DaysInMonth.FEB + 1;
+    } else if(month === 1) {
+      return DaysInMonth.FEB;
+    } else {
+      return DaysInMonth[NameOfMonth[month] as keyof typeof DaysInMonth];
+    }
   }
 
   /**
