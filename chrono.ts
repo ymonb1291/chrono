@@ -446,6 +446,27 @@ export class Chrono extends Date {
   }
 
   /**
+   * Changes the date of the Chrono instance to
+   * the first day of the next month.
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 10 2000 00:00:00");
+   * const timestamp = chrono.toStartOfPreviousMonth();
+   * console.log(chrono.toLocaleString());
+   * // -> Sat Jan 01 2000 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 946681200000
+   * ```
+   */
+  public toStartOfPreviousMonth(): number {
+    const current_month: number = this.getMonth();
+    this.setMonth(current_month - 1);
+    this.setDate(1);
+    return this.getTime();
+  }
+
+  /**
    * Returns the date expressed as an array
    * 
    * **Example**
