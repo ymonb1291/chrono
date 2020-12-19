@@ -5,35 +5,37 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  schedule:
+    - cron:  '0 6 * * 1'
 
 jobs:
   test:
-    name: Test
-    runs-on: ${{ matrix.os }}
+    name: Test with timezone
+    runs-on: "ubuntu-20.04"
 
     strategy:
       matrix:
-        deno: ["v1.x", "nightly"]
-        os: [macOS-latest, windows-latest, ubuntu-latest]
+        tz: ["UTC", "Europe/Berlin", "America/New_York", "Asia/Singapore"]
 
     steps:
       - name: Setup repo
         uses: actions/checkout@v2
 
       - name: Setup Deno
-        uses: denolib/setup-deno@v2.2.0
+        uses: denolib/setup-deno@v2.3.0
         with:
-          deno-version: ${{ matrix.deno }}
+          deno-version: "v1.6.x"
           
       - name: Set Timezone
         uses: szenius/set-timezone@v1.0
         with:
-          timezoneLinux: Europe/Berlin
-          timezoneMacos: Europe/Berlin
-          timezoneWindows: Europe/Berlin
+          timezoneLinux: ${{ matrix.tz }}
 
       - name: Deno Version
         run: deno --version
+
+      - name: Local Time
+        run: deno eval 'console.log(new Date().toLocaleString())'
       
       - name: Cache Dependencies
         run: deno cache deps_test.ts
