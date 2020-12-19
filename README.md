@@ -340,6 +340,23 @@ const chrono = new Chrono("Feb 01 2020 00:00:00");
 console.log(chrono.toUTCArray());   // [2020, 1, 1, 0, 0, 0, 0]
 ```
 
+## Chrono.prototype.toEndOfNextMonth
+### Method signature
+```
+Chrono.toEndOfNextMonth(): number
+```
+* **Returns:** a value of type `number` representing the timestamp after execution
+
+### Example
+```
+const chrono = new Chrono("Feb 10 2000 00:00:00");
+const timestamp = chrono.toEndOfNextMonth();
+console.log(chrono.toLocaleString());
+// -> Fri Mar 31 2000 00:00:00 GMT+0200 (CEST)
+console.log(timestamp); 
+// -> 954453600000
+```
+
 ## Chrono.prototype.toStartOfNextMonth
 ### Method signature
 ```
