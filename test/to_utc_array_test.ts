@@ -19,13 +19,13 @@ Rhum.testPlan("to_utc_array_test.ts", () => {
       
       const res = chrono.toUTCArray();
       
-      expect(res[0]).toEqual(2020);
-      expect(res[1]).toEqual(0);
-      expect(res[2]).toEqual(31);
-      expect(res[3]).toEqual(23);
-      expect(res[4]).toEqual(0);
-      expect(res[5]).toEqual(0);
-      expect(res[6]).toEqual(0);
+      expect(res[0]).toEqual(chrono.getUTCFullYear());
+      expect(res[1]).toEqual(chrono.getUTCMonth());
+      expect(res[2]).toEqual(chrono.getUTCDate());
+      expect(res[3]).toEqual(chrono.getUTCHours());
+      expect(res[4]).toEqual(chrono.getUTCMinutes());
+      expect(res[5]).toEqual(chrono.getUTCSeconds());
+      expect(res[6]).toEqual(chrono.getUTCMilliseconds());
     });
 
   });
