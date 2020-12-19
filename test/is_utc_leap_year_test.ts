@@ -57,8 +57,24 @@ Rhum.testPlan("is_utc_leap_year_test.ts", () => {
       const chrono = new Chrono("Jan 01 2000 00:00:00");
       
       const res = chrono.isUTCLeapYear();
+
+      function test(year: number): boolean {
+        if (year%4 !== 0 || (year%100 === 0 && year%400 !== 0)) {
+          // common year
+          return false
+        }
+        // leap year
+        return true
+      }
+
+      if(test(chrono.getUTCFullYear())) {
+        // if the local timezone is UTC or America, UTC time is in 2000 -> leap year
+        expect(res).toBeTruthy();
+      } else {
+        // if the local timezone is Europe or Asia, UTC time is in 1999 -> non-leap year
+        expect(res).toBeFalsy();
+      }
       
-      expect(res).toBeFalsy();
     });
 
   });
