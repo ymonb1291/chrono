@@ -5,6 +5,8 @@
 [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/chrono/mod.ts)
 ![GitHub](https://img.shields.io/github/license/ymonb1291/chrono)
 
+[![nest badge](https://nest.land/badge.svg)](https://nest.land/package/chrono)
+
 A date utility library that extends the native `Date` object.
 
 ## Features

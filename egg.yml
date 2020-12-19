@@ -1,0 +1,13 @@
+name: chrono
+entry: ./mod.ts
+description: A date utility library
+homepage: https://github.com/ymonb1291/chrono
+unstable: false
+unlisted: false
+files:
+  - "**/*.ts"
+  - "LICENSE"
+  - "README.md"
+ignore:
+  - "**/*_test.ts"
+check: false
