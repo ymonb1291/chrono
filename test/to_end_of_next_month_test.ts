@@ -7,7 +7,6 @@ Rhum.testPlan("to_end_of_next_month_test.ts", () => {
       const chrono = new Chrono("Feb 10 2000 00:00:00");
 
       const res = chrono.toEndOfNextMonth();
-      console.log(chrono.toLocaleString(), res)
 
       expect(new Date(res).getMonth()).toEqual(2);
       expect(new Date(res).getDate()).toEqual(31);
@@ -30,7 +29,6 @@ Rhum.testPlan("to_end_of_next_month_test.ts", () => {
       expect(new Date(res).getMonth()).toEqual(1);
       expect(new Date(res).getDate()).toEqual(29);
     });
-
   });
 });
 
