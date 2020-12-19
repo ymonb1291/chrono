@@ -357,6 +357,23 @@ console.log(timestamp);
 // -> 954453600000
 ```
 
+## Chrono.prototype.toEndOfPreviousMonth
+### Method signature
+```
+Chrono.toEndOfPreviousMonth(): number
+```
+* **Returns:** a value of type `number` representing the timestamp after execution
+
+### Example
+```
+const chrono = new Chrono("Feb 10 2000 00:00:00");
+const timestamp = chrono.toEndOfPreviousMonth();
+console.log(chrono.toLocaleString());
+// -> Mon Jan 31 2000 00:00:00 GMT+0100 (CET)
+console.log(timestamp); 
+// -> 949273200000
+```
+
 ## Chrono.prototype.toStartOfNextMonth
 ### Method signature
 ```

@@ -46,5 +46,5 @@ export const DaysInMonthNum: number[] = [
   DaysInMonth.SEP,
   DaysInMonth.OCT,
   DaysInMonth.NOV,
-  DaysInMonth.DEC  
+  DaysInMonth.DEC,
 ];

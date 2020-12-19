@@ -2,7 +2,7 @@ import { Duration } from "./duration.enum.ts";
 import {
   DaysInMonth,
   DaysInMonthNum,
-  NameOfMonth
+  NameOfMonth,
 } from "./months_utilities.ts";
 
 /** 
@@ -447,9 +447,39 @@ export class Chrono extends Date {
     // next month
     this.setDate(1);
     this.setMonth(this.getMonth() + 1);
-    
-    if(this.getMonth() === 1 && this._isLeapYear(this.getFullYear())) {
-      this.setDate(DaysInMonthNum[this.getMonth()]+1);
+
+    if (this.getMonth() === 1 && this._isLeapYear(this.getFullYear())) {
+      this.setDate(DaysInMonthNum[this.getMonth()] + 1);
+    } else {
+      this.setDate(DaysInMonthNum[this.getMonth()]);
+    }
+
+    return this.getTime();
+  }
+
+  /**
+   * Changes the date of the Chrono instance to
+   * the first day of the previous month.
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 10 2000 00:00:00");
+   * const timestamp = chrono.toEndOfPreviousMonth();
+   * console.log(chrono.toLocaleString());
+   * // -> Wed Mar 01 2000 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 951865200000
+   * ```
+   */
+  public toEndOfPreviousMonth(): number {
+    // since all months don't have the same number of days,
+    // we need first to be sure that the date will exist during
+    // previous month
+    this.setDate(1);
+    this.setMonth(this.getMonth() - 1);
+
+    if (this.getMonth() === 1 && this._isLeapYear(this.getFullYear())) {
+      this.setDate(DaysInMonthNum[this.getMonth()] + 1);
     } else {
       this.setDate(DaysInMonthNum[this.getMonth()]);
     }
