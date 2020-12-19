@@ -2,19 +2,15 @@ import { Chrono } from "./chrono.ts";
 import { expect, Rhum } from "./deps_test.ts";
 
 Rhum.testPlan("chrono_test.ts", () => {
-
   Rhum.testSuite("Chrono instance", () => {
-
     Rhum.testCase("Is equivalent to a Date object", () => {
       const chrono: Date = new Chrono(2011, 10, 28);
       const date: Date = new Date(chrono);
       expect(date.toString()).toEqual(chrono.toString());
     });
-
   });
 
   Rhum.testSuite("Chrono constuctor", () => {
-
     Rhum.testCase("Behaves like Date without argument", () => {
       const date = new Date();
       const chrono = new Chrono();
@@ -83,9 +79,7 @@ Rhum.testPlan("chrono_test.ts", () => {
       expect(date.toString()).toEqual(chrono.toString());
       expect(date.getMilliseconds()).toEqual(chrono.getMilliseconds());
     });
-
   });
-
 });
 
 Rhum.run();

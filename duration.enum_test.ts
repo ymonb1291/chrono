@@ -2,9 +2,7 @@ import { expect, Rhum } from "./deps_test.ts";
 import { Duration } from "./duration.enum.ts";
 
 Rhum.testPlan("duration_test.ts", () => {
-
   Rhum.testSuite("Duration", () => {
-
     Rhum.testCase("Contains keys WEEK, DAY, HOUR, MINUTE and SECOND", () => {
       const keys: string[] = [
         "WEEK",
@@ -15,9 +13,11 @@ Rhum.testPlan("duration_test.ts", () => {
       ];
 
       const includes = keys
-        .map(key => Object.keys(Duration)
-        .includes(key))
-        .every(val => val);
+        .map((key) =>
+          Object.keys(Duration)
+            .includes(key)
+        )
+        .every((val) => val);
 
       expect(includes).toEqual(true);
     });
@@ -41,9 +41,7 @@ Rhum.testPlan("duration_test.ts", () => {
     Rhum.testCase("Duration.SECOND equals 1000s", () => {
       expect(Duration.SECOND).toEqual(1000);
     });
-
   });
-
 });
 
 Rhum.run();

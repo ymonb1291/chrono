@@ -11,17 +11,34 @@ import { NameOfMonth } from "./name_of_month.enum.ts";
  * ```
  */
 export class Chrono extends Date {
-
-  constructor()
-  constructor(value: number | string | Date)
-  constructor(year: number, month: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number)
+  constructor();
+  constructor(value: number | string | Date);
+  constructor(
+    year: number,
+    month: number,
+    date?: number,
+    hours?: number,
+    minutes?: number,
+    seconds?: number,
+    ms?: number,
+  );
   constructor(...args: unknown[]) {
-    if(!args.length) {
+    if (!args.length) {
       super(...args as []);
-    } else if(args.length === 1) {
+    } else if (args.length === 1) {
       super(...args as [number | string | Date]);
     } else {
-      super(...args as [number, number, number?, number?, number?, number?, number?]);
+      super(
+        ...args as [
+          number,
+          number,
+          number?,
+          number?,
+          number?,
+          number?,
+          number?,
+        ],
+      );
     }
   }
 
@@ -93,11 +110,11 @@ export class Chrono extends Date {
     const oldDate = new Date(this.getTime());
     const newDate = new Date(this.getTime());
     newDate.setMonth(newDate.getMonth() + n);
-    
-    while(newDate.getMonth() > ((oldDate.getMonth() + n%12) % 12)) {
+
+    while (newDate.getMonth() > ((oldDate.getMonth() + n % 12) % 12)) {
       newDate.setDate(newDate.getDate() - 1);
     }
-    
+
     return this.setTime(newDate.getTime());
   }
 
@@ -153,10 +170,10 @@ export class Chrono extends Date {
     const newDate = new Date(this.getTime());
     newDate.setFullYear(newDate.getFullYear() + n);
 
-    while(newDate.getMonth() !== oldDate.getMonth()) {
+    while (newDate.getMonth() !== oldDate.getMonth()) {
       newDate.setDate(newDate.getDate() - 1);
     }
-    
+
     return this.setTime(newDate.getTime());
   }
 
@@ -178,9 +195,9 @@ export class Chrono extends Date {
   public getLenghOfMonth(month?: number): number {
     month = month || this.getMonth();
 
-    if(month === 1 && this.isLeapYear()) {
+    if (month === 1 && this.isLeapYear()) {
       return DaysInMonth.FEB + 1;
-    } else if(month === 1) {
+    } else if (month === 1) {
       return DaysInMonth.FEB;
     } else {
       return DaysInMonth[NameOfMonth[month] as keyof typeof DaysInMonth];
@@ -243,7 +260,7 @@ export class Chrono extends Date {
    * ```
    */
   public set(time: number | Date | Chrono): number {
-    if(time instanceof Date) {
+    if (time instanceof Date) {
       this.setTime(time.getTime());
     } else {
       this.setTime(time);
@@ -319,7 +336,7 @@ export class Chrono extends Date {
     const oldDate = new Date(this.getTime());
     const newDate = new Date(this.getTime());
     newDate.setMonth(newDate.getMonth() - n);
-    while(oldDate.getDate() > 28 && newDate.getDate() < 4) {
+    while (oldDate.getDate() > 28 && newDate.getDate() < 4) {
       newDate.setDate(newDate.getDate() - 1);
     }
 
@@ -378,10 +395,10 @@ export class Chrono extends Date {
     const newDate = new Date(this.getTime());
     newDate.setFullYear(newDate.getFullYear() - n);
 
-    while(newDate.getMonth() !== oldDate.getMonth()) {
+    while (newDate.getMonth() !== oldDate.getMonth()) {
       newDate.setDate(newDate.getDate() - 1);
     }
-    
+
     return this.setTime(newDate.getTime());
   }
 
@@ -403,7 +420,7 @@ export class Chrono extends Date {
       this.getHours(),
       this.getMinutes(),
       this.getSeconds(),
-      this.getMilliseconds()
+      this.getMilliseconds(),
     ];
   }
 
@@ -417,7 +434,15 @@ export class Chrono extends Date {
    * // -> [2020, 0, 31, 23, 0, 0, 0]
    * ```
    */
-  public toUTCArray(): [number, number, number, number, number, number, number] {
+  public toUTCArray(): [
+    number,
+    number,
+    number,
+    number,
+    number,
+    number,
+    number,
+  ] {
     return [
       this.getUTCFullYear(),
       this.getUTCMonth(),
@@ -425,18 +450,17 @@ export class Chrono extends Date {
       this.getUTCHours(),
       this.getUTCMinutes(),
       this.getUTCSeconds(),
-      this.getUTCMilliseconds()
+      this.getUTCMilliseconds(),
     ];
   }
 
   /** Checks if a year is a leap year */
   private _isLeapYear(year: number): boolean {
-    if (year%4 !== 0 || (year%100 === 0 && year%400 !== 0)) {
+    if (year % 4 !== 0 || (year % 100 === 0 && year % 400 !== 0)) {
       // common year
-      return false
+      return false;
     }
     // leap year
-    return true
+    return true;
   }
-
 }
