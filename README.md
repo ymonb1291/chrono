@@ -428,6 +428,26 @@ console.log(timestamp);
 // -> 947458800000
 ```
 
+## Chrono.prototype.toNthDayOfMonth
+### Method signature
+```
+Chrono.toNthDayOfMonth(day: number, occurence: number): number
+```
+* **Parameters:**
+  * day: parameter of type `number` which represent the day of interest. Accepts values between 0 and 6, where 0 is Sunday and 6 is Saturday.
+  * occurence: (optional) parameter of type `number` which defaults to `1` which represents nth occurence of the day. Accepts values between 1 and 5.
+* **Returns:** a value of type `number` representing the timestamp after execution, or undefined if the nth of the given day doesn't exist in this month
+
+### Example
+```
+const chrono = new Chrono("Jan 21 2000 00:00:00");
+const timestamp = chrono.toNthDayOfMonth(3,2);
+console.log(chrono.toLocaleString());
+// -> Wed Jan 12 2000 00:00:00 GMT+0100 (CET)
+console.log(timestamp); 
+// -> 947631600000
+```
+
 ## Chrono.prototype.toStartOfNextMonth
 ### Method signature
 ```

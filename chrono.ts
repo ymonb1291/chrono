@@ -545,6 +545,43 @@ export class Chrono extends Date {
 
   /**
    * Changes the date of the Chrono instance to
+   * the nth occurence of a day in the month.
+   * Returns undefined when the nth occurence doesn't exist.
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Jan 21 2000 00:00:00");
+   * const timestamp = chrono.toNthDayOfMonth(3,2);
+   * console.log(chrono.toLocaleString());
+   * // -> Wed Jan 12 2000 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 947631600000
+   * ```
+   */
+  public toNthDayOfMonth(
+    day: 0 | 1 | 2 | 3 | 4 | 5 | 6,
+    occurence: 1 | 2 | 3 | 4 | 5 = 1,
+  ): number | undefined {
+    const chrono = new Chrono(this);
+    chrono.setDate(1);
+    let currentDay: number = chrono.getDay();
+
+    while (currentDay !== day) {
+      chrono.addDay(1);
+      currentDay = chrono.getDay();
+    }
+
+    chrono.addWeek(occurence - 1);
+
+    if (chrono.getMonth() === this.getMonth()) {
+      return this.setTime(chrono.getTime());
+    } else {
+      return void 0;
+    }
+  }
+
+  /**
+   * Changes the date of the Chrono instance to
    * the first day of the next month.
    * 
    * **Example**
