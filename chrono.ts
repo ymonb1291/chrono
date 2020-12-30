@@ -460,11 +460,11 @@ export class Chrono extends Date {
    * **Example**
    * ```
    * const chrono = new Chrono("Feb 10 2000 00:00:00");
-   * const timestamp = chrono.toStartOfNextMonth();
+   * const timestamp = chrono.toEndOfNextMonth();
    * console.log(chrono.toLocaleString());
-   * // -> Wed Mar 01 2000 00:00:00 GMT+0100 (CET)
+   * // -> Fri Mar 31 2000 00:00:00 GMT+0200 (CEST)
    * console.log(timestamp); 
-   * // -> 951865200000
+   * // -> 954453600000
    * ```
    */
   public toEndOfNextMonth(): number {
@@ -488,9 +488,9 @@ export class Chrono extends Date {
    * const chrono = new Chrono("Feb 10 2000 00:00:00");
    * const timestamp = chrono.toEndOfPreviousMonth();
    * console.log(chrono.toLocaleString());
-   * // -> Wed Mar 01 2000 00:00:00 GMT+0100 (CET)
+   * // -> Mon Jan 31 2000 00:00:00 GMT+0100 (CET)
    * console.log(timestamp); 
-   * // -> 951865200000
+   * // -> 949273200000
    * ```
    */
   public toEndOfPreviousMonth(): number {
