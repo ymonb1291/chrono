@@ -506,6 +506,44 @@ export class Chrono extends Date {
   }
 
   /**
+   * Changes the date of the Chrono instance to the nearest
+   * weekday (MON-FRI). If the day is Saturday, then the date
+   * changes to Friday. If the day is Sunday, it changes to Monday.
+   * 
+   * When the parameter 'bound' is set to true, the date will always
+   * remain within the boudaries of the month. In such case, the
+   * nearest weekday from Saturday the 1st is Monday
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Jan 9 2000 00:00:00");
+   * const timestamp = chrono.toEndOfPreviousMonth();
+   * console.log(chrono.toLocaleString());
+   * // -> Mon Jan 10 2000 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 947458800000
+   * ```
+   */
+  public toNearestWeekday(bound: boolean = true): number {
+    const day: number = this.getDay();
+    const month: number = this.getMonth();
+
+    if (day === 6) {
+      this.substractDay(1);
+    } else if (day === 0) {
+      this.addDay(1);
+    }
+
+    if (bound && this.getMonth() !== month && day === 6) {
+      this.addDay(3);
+    } else if (bound && this.getMonth() !== month && day === 0) {
+      this.substractDay(3);
+    }
+
+    return this.getTime();
+  }
+
+  /**
    * Changes the date of the Chrono instance to
    * the first day of the next month.
    * 

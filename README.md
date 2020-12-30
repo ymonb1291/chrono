@@ -409,6 +409,25 @@ console.log(timestamp);
 // -> 949273200000
 ```
 
+## Chrono.prototype.toNearestWeekday
+### Method signature
+```
+Chrono.toNearestWeekday(bound: boolean): number
+```
+* **Parameter:**
+  * offset: (optional) parameter of type `boolean` which defaults to `true`. When true, Chrono will look for the nearest weekday within the boudaries of the current month. The nearest weekday of a Sunday can therefore be a Friday if the Sunday is the last day of the month.
+* **Returns:** a value of type `number` representing the timestamp after execution
+
+### Example
+```
+const chrono = new Chrono("Jan 9 2000 00:00:00");
+const timestamp = chrono.toEndOfPreviousMonth();
+console.log(chrono.toLocaleString());
+// -> Mon Jan 10 2000 00:00:00 GMT+0100 (CET)
+console.log(timestamp); 
+// -> 947458800000
+```
+
 ## Chrono.prototype.toStartOfNextMonth
 ### Method signature
 ```
