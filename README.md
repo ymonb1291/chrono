@@ -356,6 +356,25 @@ const chrono = new Chrono("Feb 01 2020 00:00:00");
 console.log(chrono.toUTCArray());   // [2020, 1, 1, 0, 0, 0, 0]
 ```
 
+## Chrono.prototype.toEndOfMonth
+### Method signature
+```
+Chrono.toEndOfMonth(offset: number): number
+```
+* **Parameter:**
+  * offset: (optional) parameter of type `number` which defaults to `0` and defines that the date should be set to *n* days prior to the end of the month.
+* **Returns:** a value of type `number` representing the timestamp after execution
+
+### Example
+```
+const chrono = new Chrono("Feb 10 2000 00:00:00");
+const timestamp = chrono.toEndOfMonth();
+console.log(chrono.toLocaleString());
+// -> Tue Feb 29 2000 00:00:00 GMT+0100 (CET)
+console.log(timestamp); 
+// -> 951778800000
+```
+
 ## Chrono.prototype.toEndOfNextMonth
 ### Method signature
 ```

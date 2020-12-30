@@ -429,6 +429,32 @@ export class Chrono extends Date {
 
   /**
    * Changes the date of the Chrono instance to
+   * the last day of the current month.
+   * 
+   * **Example**
+   * ```
+   * const chrono = new Chrono("Feb 10 2000 00:00:00");
+   * const timestamp = chrono.toEndOfMonth();
+   * console.log(chrono.toLocaleString());
+   * // -> Tue Feb 29 2000 00:00:00 GMT+0100 (CET)
+   * console.log(timestamp); 
+   * // -> 951778800000
+   * ```
+   */
+  public toEndOfMonth(offset: number = 0): number {
+    offset = offset < 0 ? 0 : offset;
+
+    if (this.getMonth() === 1 && this._isLeapYear(this.getFullYear())) {
+      this.setDate(DaysInMonthNum[this.getMonth()] + 1 - offset);
+    } else {
+      this.setDate(DaysInMonthNum[this.getMonth()] - offset);
+    }
+
+    return this.getTime();
+  }
+
+  /**
+   * Changes the date of the Chrono instance to
    * the first day of the next month.
    * 
    * **Example**
@@ -448,11 +474,7 @@ export class Chrono extends Date {
     this.setDate(1);
     this.setMonth(this.getMonth() + 1);
 
-    if (this.getMonth() === 1 && this._isLeapYear(this.getFullYear())) {
-      this.setDate(DaysInMonthNum[this.getMonth()] + 1);
-    } else {
-      this.setDate(DaysInMonthNum[this.getMonth()]);
-    }
+    this.toEndOfMonth();
 
     return this.getTime();
   }
@@ -478,11 +500,7 @@ export class Chrono extends Date {
     this.setDate(1);
     this.setMonth(this.getMonth() - 1);
 
-    if (this.getMonth() === 1 && this._isLeapYear(this.getFullYear())) {
-      this.setDate(DaysInMonthNum[this.getMonth()] + 1);
-    } else {
-      this.setDate(DaysInMonthNum[this.getMonth()]);
-    }
+    this.toEndOfMonth();
 
     return this.getTime();
   }
