@@ -72,11 +72,3 @@ Rhum.testPlan("to_nearest_weekday_test.ts", () => {
 });
 
 Rhum.run();
-
-// chrono = new Chrono("Jan 7 2000 00:00:00"); // Friday
-// chrono = new Chrono("Jan 8 2000 00:00:00"); // Saturday
-// chrono = new Chrono("Jan 9 2000 00:00:00"); // Sunday
-// chrono = new Chrono("Jan 10 2000 00:00:00"); // Monday
-
-// chrono = new Chrono("Oct 31 2020 00:00:00"); // Sat
-// chrono = new Chrono("May 31 2020 00:00:00"); // Sun
