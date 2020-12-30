@@ -18,16 +18,16 @@ A date utility library that extends the native `Date` object.
 Import the latest release.
 ```
 // From Deno.land
-import { Chrono } from "https://deno.land/x/chrono@v1.2.0/mod.ts";
+import { Chrono } from "https://deno.land/x/chrono@v1.3.0/mod.ts";
 
 // From Nest.land
-import { Chrono } from "https://x.nest.land/chrono@v1.2.0/mod.ts";
+import { Chrono } from "https://x.nest.land/chrono@v1.3.0/mod.ts";
 
 // From Denopkg
-import { Chrono } from "https://denopkg.com/ymonb1291/chrono@v1.2.0/mod.ts";
+import { Chrono } from "https://denopkg.com/ymonb1291/chrono@v1.3.0/mod.ts";
 
 // From Github
-import { Chrono } from "https://raw.githubusercontent.com/ymonb1291/chrono/v1.2.0/mod.ts";
+import { Chrono } from "https://raw.githubusercontent.com/ymonb1291/chrono/v1.3.0/mod.ts";
 ```
 
 Basic usage:
