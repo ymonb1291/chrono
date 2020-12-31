@@ -559,9 +559,18 @@ export class Chrono extends Date {
    * ```
    */
   public toNthDayOfMonth(
-    day: 0 | 1 | 2 | 3 | 4 | 5 | 6,
-    occurence: 1 | 2 | 3 | 4 | 5 = 1,
+    day: number,
+    occurence: number,
   ): number | undefined {
+    if (day < 0 || day > 6) {
+      throw new RangeError("Parameter 'day' must be a number between 0 and 6");
+    }
+    if (occurence < 1 || occurence > 5) {
+      throw new RangeError(
+        "Parameter 'occurence' must be a number between 1 and 5",
+      );
+    }
+
     const chrono = new Chrono(this);
     chrono.setDate(1);
     let currentDay: number = chrono.getDay();

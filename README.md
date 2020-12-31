@@ -435,7 +435,7 @@ Chrono.toNthDayOfMonth(day: number, occurence: number): number
 ```
 * **Parameters:**
   * day: parameter of type `number` which represent the day of interest. Accepts values between 0 and 6, where 0 is Sunday and 6 is Saturday.
-  * occurence: (optional) parameter of type `number` which defaults to `1` which represents nth occurence of the day. Accepts values between 1 and 5.
+  * occurence: parameter of type `number` which represents nth occurence of the day. Accepts values between 1 and 5.
 * **Returns:** a value of type `number` representing the timestamp after execution, or undefined if the nth of the given day doesn't exist in this month
 
 ### Example

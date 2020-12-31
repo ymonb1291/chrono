@@ -59,6 +59,54 @@ Rhum.testPlan("to_nth_day_of_month_test.ts", () => {
         }
       },
     );
+
+    Rhum.testCase(
+      "Throws an error when parameter 'day' is < 0",
+      () => {
+        const chrono = new Chrono("Jan 21 2000 00:00:00");
+        const t = () => {
+          chrono.toNthDayOfMonth(-1, 1);
+        };
+
+        expect(t).toThrow();
+      },
+    );
+
+    Rhum.testCase(
+      "Throws an error when parameter 'day' is > 6",
+      () => {
+        const chrono = new Chrono("Jan 21 2000 00:00:00");
+        const t = () => {
+          chrono.toNthDayOfMonth(7, 1);
+        };
+
+        expect(t).toThrow();
+      },
+    );
+
+    Rhum.testCase(
+      "Throws an error when parameter 'occurence' is < 1",
+      () => {
+        const chrono = new Chrono("Jan 21 2000 00:00:00");
+        const t = () => {
+          chrono.toNthDayOfMonth(1, 0);
+        };
+
+        expect(t).toThrow();
+      },
+    );
+
+    Rhum.testCase(
+      "Throws an error when parameter 'occurence' is > 5",
+      () => {
+        const chrono = new Chrono("Jan 21 2000 00:00:00");
+        const t = () => {
+          chrono.toNthDayOfMonth(1, 6);
+        };
+
+        expect(t).toThrow();
+      },
+    );
   });
 });
 
